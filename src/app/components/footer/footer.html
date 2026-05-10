@@ -1,0 +1,16 @@
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div><span class="f-name">Mohammad Oman</span><span class="f-dot">.</span></div>
+      <div class="f-tagline">Open to Research Collaboration &amp; PhD Opportunities</div>
+    </div>
+    <nav class="footer-nav">
+      @for (link of links; track link.path) {
+        <a [routerLink]="link.path" class="f-link">{{ link.label }}</a>
+      }
+    </nav>
+    <div class="footer-right">
+      <p class="f-copy">© {{ year }} Mohammad Oman · Built with Angular · Dhaka, Bangladesh</p>
+    </div>
+  </div>
+</footer>

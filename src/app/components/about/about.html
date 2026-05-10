@@ -1,0 +1,61 @@
+<section class="about-page">
+  <div class="container">
+    <header class="page-header">
+      <p class="section-label">About Me</p>
+      <h1 class="section-title">The Researcher Behind the Code</h1>
+      <div class="gold-line"></div>
+    </header>
+
+    <div class="about-grid">
+      <div class="about-bio">
+        <p>
+          I am Mohammad Oman, a Computer Science &amp; Engineering graduate from CUET with a strong
+          foundation in both software engineering and academic research. I am currently working as an
+          MTO (ASP.NET Developer) at PRAN-RFL Group, where I architect factory automation systems
+          and build AI-powered enterprise solutions.
+        </p>
+        <p>
+          My research focuses on wireless passive sensing — specifically measuring heart and breathing
+          rate using Wi-Fi Channel State Information — and multimodal NLP for detecting misogynistic
+          content in social media. My undergraduate thesis was supervised by Mir. Md. Saki Kowsar and
+          submitted to NSySS, BUET 2025. A co-authored paper was published at LDK 2025.
+        </p>
+        <p>
+          Outside of work and research, I am passionate about competitive programming (700+ problems
+          solved), mentoring peers, and contributing to open-source projects. I am a member of the
+          CUET Computer Club and Chittagong Student Forum.
+        </p>
+        <div class="about-links">
+          <a routerLink="/projects" class="btn-primary">My Projects →</a>
+          <a href="mailto:mdoman765@gmail.com" class="btn-ghost">Email Me</a>
+        </div>
+      </div>
+
+      <div class="education-col">
+        <h3 class="col-title">Education</h3>
+        @for (edu of education; track edu.degree) {
+          <div class="edu-card">
+            <div class="edu-period">{{ edu.period }}</div>
+            <div class="edu-degree">{{ edu.degree }}</div>
+            <div class="edu-inst">{{ edu.institution }}</div>
+            <div class="edu-detail">Focus: {{ edu.focus }}</div>
+            <div class="edu-gpa">GPA: {{ edu.gpa }}</div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="interests-section">
+      <h3 class="col-title">Research Interests</h3>
+      <div class="interests-grid">
+        @for (item of interests; track item.title) {
+          <div class="interest-card">
+            <span class="interest-icon">{{ item.icon }}</span>
+            <h4 class="interest-title">{{ item.title }}</h4>
+            <p class="interest-desc">{{ item.desc }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

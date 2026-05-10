@@ -1,0 +1,36 @@
+<header [class.scrolled]="scrolled()">
+  <div class="nav-inner">
+    <a routerLink="/home" class="logo" (click)="closeMenu()">
+      <span class="logo-name">Oman</span>
+      <span class="logo-dot">.</span>
+    </a>
+
+    <nav class="desktop-nav">
+      @for (link of navLinks; track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="active"
+          class="nav-link"
+        >{{ link.label }}</a>
+      }
+      <a routerLink="/contact" class="btn-cta">Get In Touch</a>
+    </nav>
+
+    <button class="hamburger" (click)="toggleMenu()" [class.open]="menuOpen()" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  @if (menuOpen()) {
+    <nav class="mobile-nav">
+      @for (link of navLinks; track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="active"
+          class="mobile-link"
+          (click)="closeMenu()"
+        >{{ link.label }}</a>
+      }
+    </nav>
+  }
+</header>

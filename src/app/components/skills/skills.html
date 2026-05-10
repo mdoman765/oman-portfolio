@@ -1,0 +1,43 @@
+<section class="skills-page">
+  <div class="container">
+    <header class="page-header">
+      <p class="section-label">Technical Expertise</p>
+      <h1 class="section-title">Skills &amp; Technologies</h1>
+      <div class="gold-line"></div>
+      <p class="section-desc">A curated overview of the tools and technologies I use in research and development.</p>
+    </header>
+
+    <div class="skills-grid">
+      @for (cat of categories; track cat.name) {
+        <div class="skill-card">
+          <div class="skill-card-header">
+            <span class="cat-icon">{{ cat.icon }}</span>
+            <h3 class="cat-name">{{ cat.name }}</h3>
+          </div>
+          <div class="skill-list">
+            @for (skill of cat.skills; track skill.name) {
+              <div class="skill-item">
+                <div class="skill-meta">
+                  <span class="skill-name">{{ skill.name }}</span>
+                  <span class="skill-pct">{{ skill.level }}%</span>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill" [style.width.%]="skill.level"></div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="tools-section">
+      <h3 class="tools-title">Other Tools &amp; Frameworks</h3>
+      <div class="tools-tags">
+        @for (tool of tools; track tool) {
+          <span class="tool-tag">{{ tool }}</span>
+        }
+      </div>
+    </div>
+  </div>
+</section>

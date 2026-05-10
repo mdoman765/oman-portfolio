@@ -1,0 +1,54 @@
+<section id="hero">
+  <canvas #constellation id="constellation"></canvas>
+  <div class="hero-noise"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-tag">
+        <div class="hero-tag-dot"></div>
+        Open to PhD Opportunities &amp; Research Collaborations
+      </div>
+      <h1 class="hero-name">Mohammad<br/>Oman</h1>
+      <p class="hero-role">Software Engineer &amp; CS Researcher · CUET, Bangladesh</p>
+      <p class="hero-bio">
+        Building production-grade AI systems at PRAN-RFL Group while conducting research in
+        <strong>Wi-Fi Passive Sensing</strong>, <strong>Multimodal NLP</strong>, and
+        <strong>LLM-powered Automation</strong>. B.Sc. CSE graduate from CUET with a published paper
+        at ACL Anthology and 700+ competitive programming solutions.
+      </p>
+      <div class="hero-tags">
+        @for (area of researchAreas; track area) {
+          <span class="htag">{{ area }}</span>
+        }
+      </div>
+      <div class="hero-ctas">
+        <a routerLink="/projects" class="btn-primary">View Research</a>
+        <a href="oman_university_cv.pdf" class="btn-secondary" target="_blank">Download CV</a>
+        <a routerLink="/contact" class="btn-secondary">Contact Me</a>
+      </div>
+    </div>
+
+    <div class="profile-wrap">
+      <div class="profile-ring-outer">
+        <div class="profile-inner">
+          <img src="oman.png" alt="Mohammad Oman" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="profile-placeholder">O</div>
+        </div>
+      </div>
+      <div class="profile-badge">
+        <span>700+</span>
+        <span>Problems</span>
+      </div>
+      <div class="profile-badge2">
+        <span>ACL</span>
+        <span>Published</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="scroll-hint">
+  <div class="scroll-line"></div>
+  <span>scroll</span>
+</section>

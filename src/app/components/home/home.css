@@ -1,0 +1,148 @@
+#hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  position: relative; overflow: hidden;
+  padding: 7rem 2rem 4rem;
+}
+canvas#constellation {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  pointer-events: none; z-index: 0; opacity: 0.45;
+}
+.hero-noise {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 0; opacity: 0.5;
+}
+.hero-glow {
+  position: absolute; top: 20%; right: -10%;
+  width: 600px; height: 600px;
+  background: radial-gradient(ellipse, rgba(200,151,58,0.04) 0%, transparent 70%);
+  pointer-events: none; z-index: 0;
+}
+.hero-glow2 {
+  position: absolute; bottom: 10%; left: -5%;
+  width: 500px; height: 500px;
+  background: radial-gradient(ellipse, rgba(56,189,248,0.03) 0%, transparent 70%);
+  pointer-events: none; z-index: 0;
+}
+.hero-inner {
+  max-width: var(--max-w); margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: 1fr 340px;
+  gap: 5rem; align-items: center; position: relative; z-index: 1;
+}
+
+/* Tag badge */
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: var(--ff-mono); font-size: 0.72rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--gold);
+  border: 1px solid rgba(200,151,58,0.25); border-radius: 999px;
+  padding: 0.35rem 0.9rem; margin-bottom: 1.5rem;
+  background: rgba(200,151,58,0.06);
+}
+.hero-tag-dot {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
+  flex-shrink: 0; animation: pulse-gold 2s infinite;
+}
+@keyframes pulse-gold {
+  0%,100% { opacity: 1; box-shadow: 0 0 0 0 rgba(200,151,58,0.4); }
+  50%      { opacity: 0.8; box-shadow: 0 0 0 4px rgba(200,151,58,0); }
+}
+
+.hero-name {
+  font-family: var(--ff-display);
+  font-size: clamp(3.5rem, 7vw, 6rem);
+  font-weight: 700; letter-spacing: -0.03em; line-height: 0.95;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #fff 0%, #c8c8c8 60%, var(--gold-lt) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.hero-role {
+  font-family: var(--ff-body); font-size: clamp(1.05rem, 2vw, 1.3rem);
+  font-weight: 300; font-style: italic; color: var(--muted2);
+  margin-bottom: 1.75rem; line-height: 1.5;
+}
+.hero-bio {
+  font-size: 1.05rem; color: var(--muted); line-height: 1.85;
+  max-width: 520px; margin-bottom: 2.5rem;
+}
+.hero-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
+.htag {
+  font-family: var(--ff-mono); font-size: 0.68rem; letter-spacing: 0.06em;
+  border: 1px solid var(--border2); border-radius: 999px;
+  padding: 0.25rem 0.75rem; color: var(--muted); background: var(--surface);
+  transition: border-color 0.2s, color 0.2s;
+}
+.htag:hover { border-color: var(--gold); color: var(--gold-lt); }
+
+.hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+/* Profile */
+.profile-wrap {
+  position: relative; display: flex; align-items: center; justify-content: center;
+}
+.profile-ring-outer {
+  position: relative; width: 280px; height: 280px;
+  border-radius: 38% 62% 55% 45% / 45% 38% 62% 55%;
+}
+.profile-ring-outer::before {
+  content: '';
+  position: absolute; inset: -3px;
+  border-radius: 38% 62% 55% 45% / 45% 38% 62% 55%;
+  background: conic-gradient(from 0deg, var(--gold), var(--cyan), var(--gold), transparent, var(--gold));
+  animation: orbit 8s linear infinite; z-index: 0;
+}
+@keyframes orbit { to { transform: rotate(360deg); } }
+.profile-ring-outer::after {
+  content: '';
+  position: absolute; inset: 2px;
+  border-radius: 38% 62% 55% 45% / 45% 38% 62% 55%;
+  background: var(--bg); z-index: 1;
+}
+.profile-inner {
+  position: absolute; inset: 8px; z-index: 2;
+  border-radius: 36% 64% 53% 47% / 43% 36% 64% 57%;
+  overflow: hidden; background: var(--surface);
+  display: flex; align-items: center; justify-content: center;
+}
+.profile-inner img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.profile-placeholder {
+  font-family: var(--ff-display); font-size: 5rem; font-weight: 700;
+  color: var(--gold); user-select: none; display: none;
+}
+.profile-badge {
+  position: absolute; bottom: 10px; right: -10px; z-index: 5;
+  background: var(--surface); border: 1px solid var(--border2);
+  border-radius: 10px; padding: 0.55rem 0.9rem;
+  font-family: var(--ff-mono); font-size: 0.65rem;
+  display: flex; flex-direction: column; align-items: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+.profile-badge span:first-child { font-size: 1rem; font-weight: 600; color: var(--gold); }
+.profile-badge span:last-child  { font-size: 0.6rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 1px; }
+.profile-badge2 {
+  position: absolute; top: 20px; left: -16px; z-index: 5;
+  background: var(--surface); border: 1px solid var(--border2);
+  border-radius: 10px; padding: 0.55rem 0.9rem;
+  font-family: var(--ff-mono); font-size: 0.65rem;
+  display: flex; flex-direction: column; align-items: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+.profile-badge2 span:first-child { font-size: 1rem; font-weight: 600; color: var(--cyan); }
+.profile-badge2 span:last-child  { font-size: 0.6rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 1px; }
+
+/* Scroll hint */
+.scroll-hint {
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  padding-bottom: 2rem; font-family: var(--ff-mono); font-size: 0.7rem;
+  letter-spacing: 0.15em; text-transform: uppercase; color: var(--border2);
+}
+.scroll-line { width: 1px; height: 48px; background: linear-gradient(to bottom, transparent, var(--border2)); }
+
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .profile-wrap { order: -1; }
+}
+@media (max-width: 600px) {
+  .hero-ctas { flex-direction: column; }
+}
