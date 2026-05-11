@@ -10,7 +10,7 @@ export class Experience {
   jobs = [
     {
       company: 'PRAN-RFL Group',
-      role: 'MTO – ASP.NET Developer',
+      role: 'Junior Software Developer',
       period: 'Nov 2025 – Present',
       location: 'Dhaka, Bangladesh',
       type: 'Full-time',
