@@ -18,7 +18,7 @@ export class Contact {
   infoItems = [
     { icon: '📧', label: 'Email',        value: 'mdoman765@gmail.com',          link: 'mailto:mdoman765@gmail.com' },
     { icon: '📱', label: 'Phone',        value: '+8801301024201',                link: 'tel:+8801301024201' },
-    { icon: '🏢', label: 'Current Role', value: 'MTO – ASP.NET Dev, PRAN-RFL',  link: '#' },
+    { icon: '🏢', label: 'Current Role', value: 'Junior Software Developer, PRAN-RFL',  link: '#' },
     { icon: '🔗', label: 'LinkedIn',     value: 'Mohammad Oman',                link: '#' },
     { icon: '💻', label: 'GitHub',       value: 'github.com/oman765',           link: 'https://github.com/oman765' },
   ];
