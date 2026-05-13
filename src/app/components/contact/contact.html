@@ -15,7 +15,7 @@
       <div class="info-panel">
         <h3 class="panel-title">Contact Information</h3>
         <div class="info-list">
-          @for (item of infoItems; track item.label) {
+          <!-- @for (item of infoItems; track item.label) {
             <a [href]="item.link" class="info-item">
               <span class="info-icon">{{ item.icon }}</span>
               <div class="info-text">
@@ -23,7 +23,16 @@
                 <span class="info-value">{{ item.value }}</span>
               </div>
             </a>
-          }
+          } -->
+          @for (item of infoItems; track item.label) {
+                <a [href]="item.link" target="_blank" rel="noopener noreferrer" class="info-item">
+                  <span class="info-icon">{{ item.icon }}</span>
+                  <span class="info-text">
+                    <span class="info-label">{{ item.label }}</span>
+                    <span class="info-value">{{ item.value }}</span>
+                  </span>
+                </a>
+              }
         </div>
         <div class="availability">
           <div class="avail-dot"></div>

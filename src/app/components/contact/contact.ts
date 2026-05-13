@@ -16,12 +16,12 @@ export class Contact {
   error   = signal(false);
 
   infoItems = [
-    { icon: '📧', label: 'Email',        value: 'mdoman765@gmail.com',          link: 'mailto:mdoman765@gmail.com' },
-    { icon: '📱', label: 'Phone',        value: '+8801301024201',                link: 'tel:+8801301024201' },
-    { icon: '🏢', label: 'Current Role', value: 'Junior Software Developer, PRAN-RFL',  link: '#' },
-    { icon: '🔗', label: 'LinkedIn',     value: 'Mohammad Oman',                link: '#' },
-    { icon: '💻', label: 'GitHub',       value: 'github.com/oman765',           link: 'https://github.com/oman765' },
-  ];
+  { icon: '📧', label: 'Email',        value: 'mdoman765@gmail.com',         link: 'mailto:mdoman765@gmail.com' },
+  { icon: '📱', label: 'Phone',        value: '+8801301024201',               link: 'tel:+8801301024201' },
+  { icon: '🏢', label: 'Current Role', value: 'Junior Software Developer, PRAN-RFL', link: '#' },
+  { icon: '🔗', label: 'LinkedIn',     value: 'linkedin.com/in/oman765',     link: 'https://www.linkedin.com/in/oman765' },
+  { icon: '💻', label: 'GitHub',       value: 'github.com/mdoman765',        link: 'https://github.com/mdoman765' },
+];
 
   onSubmit() {
     if (!this.name || !this.email || !this.message) {
