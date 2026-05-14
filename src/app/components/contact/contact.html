@@ -15,24 +15,15 @@
       <div class="info-panel">
         <h3 class="panel-title">Contact Information</h3>
         <div class="info-list">
-          <!-- @for (item of infoItems; track item.label) {
-            <a [href]="item.link" class="info-item">
+          @for (item of infoItems; track item.label) {
+            <a [href]="item.link" target="_blank" rel="noopener noreferrer" class="info-item">
               <span class="info-icon">{{ item.icon }}</span>
-              <div class="info-text">
+              <span class="info-text">
                 <span class="info-label">{{ item.label }}</span>
                 <span class="info-value">{{ item.value }}</span>
-              </div>
+              </span>
             </a>
-          } -->
-          @for (item of infoItems; track item.label) {
-                <a [href]="item.link" target="_blank" rel="noopener noreferrer" class="info-item">
-                  <span class="info-icon">{{ item.icon }}</span>
-                  <span class="info-text">
-                    <span class="info-label">{{ item.label }}</span>
-                    <span class="info-value">{{ item.value }}</span>
-                  </span>
-                </a>
-              }
+          }
         </div>
         <div class="availability">
           <div class="avail-dot"></div>
@@ -71,9 +62,13 @@
                 placeholder="I am writing to inquire about..." required></textarea>
             </div>
             @if (error()) {
-              <p class="error-msg">Please fill in all required fields.</p>
+              <p class="error-msg">
+                {{ (!name || !email || !message) ? 'Please fill in all required fields.' : 'Failed to send. Please email mdoman765@gmail.com directly.' }}
+              </p>
             }
-            <button type="submit" class="btn-submit">Send Message →</button>
+            <button type="submit" class="btn-submit" [disabled]="sending()">
+              {{ sending() ? 'Sending…' : 'Send Message →' }}
+            </button>
           </form>
         }
       </div>
