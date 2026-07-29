@@ -1,0 +1,33 @@
+<section class="ach-skills-page">
+  <div class="container">
+    <header class="page-header">
+      <p class="section-label">Competitive Programming</p>
+      <h1 class="section-title">Achievements / Skills</h1>
+      <div class="gold-line"></div>
+      <p class="section-desc">Solved <strong>700+</strong> problems across online judges and programming contests.</p>
+    </header>
+
+    <div class="judges-grid">
+      @for (j of judges; track j.name) {
+        <div class="judge-card">
+          <span class="judge-count">{{ j.count }}</span>
+          <span class="judge-name">{{ j.name }}</span>
+        </div>
+      }
+    </div>
+
+    <div class="achievements-list">
+      @for (a of achievements; track a.label) {
+        <div class="achievement-item">
+          <span class="ach-icon">{{ a.icon }}</span>
+          <div class="ach-text">
+            <span class="ach-label">{{ a.label }}</span>
+            <span class="ach-value">{{ a.value }}</span>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<app-skills></app-skills>

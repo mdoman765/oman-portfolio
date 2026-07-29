@@ -1,0 +1,21 @@
+<section class="education-page">
+  <div class="container">
+    <header class="page-header">
+      <p class="section-label">Academic Background</p>
+      <h1 class="section-title">Education</h1>
+      <div class="gold-line"></div>
+    </header>
+
+    <div class="edu-list">
+      @for (edu of education; track edu.degree) {
+        <div class="edu-card">
+          <div class="edu-period">{{ edu.period }}</div>
+          <div class="edu-degree">{{ edu.degree }}</div>
+          <div class="edu-inst">{{ edu.institution }}</div>
+          <div class="edu-detail">Focus: {{ edu.focus }}</div>
+          <div class="edu-gpa">GPA: {{ edu.gpa }}</div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+.achievements-page { padding: var(--section-pad); }
+
+.judges-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+.judge-card  {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 1.5rem 1rem; text-align: center;
+  transition: border-color 0.3s, transform 0.25s;
+}
+.judge-card:hover { border-color: rgba(200,151,58,0.3); transform: translateY(-3px); }
+.judge-count { display: block; font-family: var(--ff-display); font-size: 2rem; font-weight: 700; color: var(--gold); }
+.judge-name  { display: block; font-family: var(--ff-mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-top: 0.25rem; }
+
+.achievements-list { display: flex; flex-direction: column; gap: 0.75rem; }
+.achievement-item {
+  display: flex; align-items: center; gap: 1rem;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1rem 1.25rem;
+  transition: border-color 0.2s;
+}
+.achievement-item:hover { border-color: var(--border2); }
+.ach-icon  { font-size: 1.2rem; flex-shrink: 0; }
+.ach-text  { display: flex; flex-direction: column; gap: 2px; }
+.ach-label { font-family: var(--ff-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.ach-value { font-size: 0.95rem; color: var(--text); }

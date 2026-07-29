@@ -5,14 +5,33 @@ import { Skills } from './components/skills/skills';
 import { Projects } from './components/projects/projects';
 import { Contact } from './components/contact/contact';
 import { Experience } from './components/experience/experience';
+import { Education } from './components/education/education';
+import { Achievements } from './components/achievements/achievements';
+import { Teaching } from './components/teaching/teaching';
+import { EducationExperience } from './components/education-experience/education-experience';
+import { AchievementsSkills } from './components/achievements-skills/achievements-skills';
 
 export const routes: Routes = [
-  { path: '',           redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home',       component: Home },
-  { path: 'about',      component: About },
-  { path: 'skills',     component: Skills },
-  { path: 'experience', component: Experience },
-  { path: 'projects',   component: Projects },
-  { path: 'contact',    component: Contact },
-  { path: '**',         redirectTo: 'home' }
+  { path: '', redirectTo: 'research', pathMatch: 'full' },
+
+  // Top navbar sections: Research | Education | Experience | Skills | Achievements | Contact
+  { path: 'research',     component: Projects },
+  { path: 'education',    component: Education },
+  { path: 'experience',   component: Experience },
+  { path: 'skills',       component: Skills },
+  { path: 'achievements', component: Achievements },
+  { path: 'contact',      component: Contact },
+
+  // Kept reachable but not in the top navbar
+  { path: 'teaching',             component: Teaching },
+  { path: 'notes-misc',           component: Contact },
+  { path: 'education-experience', component: EducationExperience },
+  { path: 'achievements-skills',  component: AchievementsSkills },
+
+  // Original routes kept for backwards compatibility / direct access
+  { path: 'home',     component: Home },
+  { path: 'about',    component: About },
+  { path: 'projects', component: Projects },
+
+  { path: '**', redirectTo: 'research' }
 ];

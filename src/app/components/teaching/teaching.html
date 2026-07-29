@@ -1,0 +1,23 @@
+<section class="teaching-page">
+  <div class="container">
+    <header class="page-header">
+      <p class="section-label">Mentoring &amp; Outreach</p>
+      <h1 class="section-title">Teaching</h1>
+      <div class="gold-line"></div>
+      <p class="section-desc">
+        No formal teaching assistantship yet — here is informal mentoring and
+        knowledge-sharing work done alongside studies and industry.
+      </p>
+    </header>
+
+    <div class="teaching-list">
+      @for (item of activities; track item.title) {
+        <div class="teaching-card">
+          <div class="teaching-period">{{ item.period }}</div>
+          <h3 class="teaching-title">{{ item.title }}</h3>
+          <p class="teaching-desc">{{ item.desc }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

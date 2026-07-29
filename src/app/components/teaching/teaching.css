@@ -1,0 +1,22 @@
+.teaching-page { padding: var(--section-pad); }
+
+.teaching-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.teaching-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 1.5rem;
+  transition: border-color 0.3s;
+}
+.teaching-card:hover { border-color: var(--border2); }
+.teaching-period {
+  font-family: var(--ff-mono); font-size: 0.68rem; color: var(--gold);
+  letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem;
+}
+.teaching-title {
+  font-family: var(--ff-display); font-size: 1.15rem; font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.teaching-desc { color: var(--muted); font-size: 0.95rem; line-height: 1.7; }

@@ -1,0 +1,24 @@
+<aside class="profile-card">
+  <div class="avatar-ring">
+    <img src="oman.png" alt="Mohammad Oman" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+    <div class="avatar-placeholder">O</div>
+  </div>
+
+  <h2 class="p-name">{{ name }}</h2>
+  <p class="p-tagline">{{ tagline }}</p>
+
+  <ul class="p-meta">
+    <li><span class="p-icon">📍</span>{{ location }}</li>
+    <li><span class="p-icon">✉️</span>{{ email }}</li>
+  </ul>
+
+  <ul class="p-links">
+    @for (link of links; track link.label) {
+      <li>
+        <a [href]="link.href" target="_blank" rel="noopener noreferrer">
+          <span class="p-icon">{{ link.icon }}</span>{{ link.label }}
+        </a>
+      </li>
+    }
+  </ul>
+</aside>

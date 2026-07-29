@@ -10,11 +10,11 @@ import { RouterLink } from '@angular/router';
 export class Footer {
   year = new Date().getFullYear();
   links = [
-    { label: 'Home',       path: '/home' },
-    { label: 'About',      path: '/about' },
-    { label: 'Skills',     path: '/skills' },
-    { label: 'Experience', path: '/experience' },
-    { label: 'Projects',   path: '/projects' },
-    { label: 'Contact',    path: '/contact' },
+    { label: 'Research',     path: '/research' },
+    { label: 'Education',    path: '/education' },
+    { label: 'Experience',   path: '/experience' },
+    { label: 'Skills',       path: '/skills' },
+    { label: 'Achievements', path: '/achievements' },
+    { label: 'Contact',      path: '/contact' },
   ];
 }
