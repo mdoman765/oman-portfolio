@@ -30,7 +30,7 @@
 
 /* Interests */
 .interests-section { margin-top: 1rem; }
-.interests-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-top: 1.5rem; }
+.interests-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 1.25rem; margin-top: 1.5rem; }
 .interest-card {
   background: var(--surface); border: 1px solid var(--border);
   border-radius: var(--radius-lg); padding: 1.75rem;
@@ -44,10 +44,20 @@
 }
 .interest-card:hover { border-color: rgba(200,151,58,0.3); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.35); }
 .interest-card:hover::after { opacity: 1; }
-.interest-icon { font-size: 1.6rem; display: block; margin-bottom: 0.875rem; }
+.interest-icon { display: flex; color: var(--gold); margin-bottom: 0.875rem; }
 .interest-title { font-family: var(--ff-display); font-size: 1.1rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text); }
 .interest-desc  { font-size: 0.875rem; color: var(--muted); line-height: 1.7; }
 
+.about-links a { display: inline-flex; align-items: center; gap: 0.5rem; }
+
+.edu-inst, .edu-degree { overflow-wrap: break-word; }
+
 @media (max-width: 900px) {
   .about-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .about-links { flex-direction: column; align-items: stretch; }
+  .about-links a { justify-content: center; }
+  .interests-grid { grid-template-columns: 1fr; }
 }

@@ -1,6 +1,6 @@
 .ach-skills-page { padding: var(--section-pad); padding-bottom: 3rem; }
 
-.judges-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+.judges-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr)); gap: 1rem; margin-bottom: 2rem; }
 .judge-card  {
   background: var(--surface); border: 1px solid var(--border);
   border-radius: var(--radius-lg); padding: 1.5rem 1rem; text-align: center;
@@ -18,7 +18,14 @@
   transition: border-color 0.2s;
 }
 .achievement-item:hover { border-color: var(--border2); }
-.ach-icon  { font-size: 1.2rem; flex-shrink: 0; }
+.ach-icon  { display: inline-flex; color: var(--gold); flex-shrink: 0; }
 .ach-text  { display: flex; flex-direction: column; gap: 2px; }
 .ach-label { font-family: var(--ff-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
-.ach-value { font-size: 0.95rem; color: var(--text); }
+.ach-value { font-size: 0.95rem; color: var(--text); overflow-wrap: break-word; }
+.ach-label { overflow-wrap: break-word; }
+.achievement-item { min-height: 44px; }
+
+@media (max-width: 480px) {
+  .judge-count { font-size: 1.6rem; }
+  .achievement-item { padding: 0.85rem 1rem; gap: 0.75rem; }
+}

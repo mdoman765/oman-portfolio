@@ -20,3 +20,9 @@
   margin-bottom: 0.5rem;
 }
 .teaching-desc { color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
+
+.teaching-title { overflow-wrap: break-word; }
+
+@media (max-width: 480px) {
+  .teaching-card { padding: 1.25rem; }
+}

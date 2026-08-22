@@ -19,7 +19,7 @@
     <div class="achievements-list">
       @for (a of achievements; track a.label) {
         <div class="achievement-item">
-          <span class="ach-icon">{{ a.icon }}</span>
+          <span class="ach-icon"><app-icon [name]="a.icon" [size]="18"></app-icon></span>
           <div class="ach-text">
             <span class="ach-label">{{ a.label }}</span>
             <span class="ach-value">{{ a.value }}</span>

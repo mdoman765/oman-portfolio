@@ -24,14 +24,21 @@
 .job-sub     { font-family: var(--ff-mono); font-size: 0.68rem; color: var(--muted); display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
 .job-sep     { color: var(--border2); }
 .job-bullets { padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.25rem; }
-.job-bullets li { font-size: 0.95rem; color: var(--muted); line-height: 1.7; }
+.job-bullets li { font-size: 0.95rem; color: var(--muted); line-height: 1.7; overflow-wrap: break-word; }
 .job-tech    { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.job-company { overflow-wrap: break-word; }
+
+@media (max-width: 600px) {
+  .timeline { padding-left: 1.5rem; }
+  .timeline-dot { left: -1.9rem; }
+  .timeline-card { padding: 1.25rem; }
+}
 
 /* CP section */
 .cp-section { }
 .col-title   { font-family: var(--ff-display); font-size: 1.3rem; font-weight: 600; color: var(--text); margin-bottom: 1.25rem; }
 .cp-intro    { color: var(--muted); margin-bottom: 2rem; font-size: 1.05rem; }
-.judges-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+.judges-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr)); gap: 1rem; margin-bottom: 2rem; }
 .judge-card  {
   background: var(--surface); border: 1px solid var(--border);
   border-radius: var(--radius-lg); padding: 1.5rem 1rem; text-align: center;

@@ -1,19 +1,20 @@
 import { Component } from '@angular/core';
+import { Icon, IconName } from '../../shared/icon/icon';
 
 @Component({
   selector: 'app-achievements',
-  imports: [],
+  imports: [Icon],
   templateUrl: './achievements.html',
   styleUrl: './achievements.css',
 })
 export class Achievements {
-  achievements = [
-    { icon: '🏆', label: 'CU IT Fiesta IUPC Divisional Onsite', value: 'Rank 24th' },
-    { icon: '🥈', label: 'CU IT Fiesta IUPC Preliminary Online', value: 'Rank 22nd' },
-    { icon: '⭐', label: 'Samsung R&D Bangladesh Code Contest 2024', value: 'Qualified Round 2' },
-    { icon: '🌐', label: 'ICPC Dhaka Regional Preliminary 2024', value: 'Participated' },
-    { icon: '📝', label: 'Mujib Shotoborsho Divisional Contest CUET', value: 'Onsite' },
-    { icon: '💡', label: 'CUET Intra University Junior Contest', value: 'Online' },
+  achievements: { icon: IconName; label: string; value: string }[] = [
+    { icon: 'trophy',          label: 'CU IT Fiesta IUPC Divisional Onsite', value: 'Rank 24th' },
+    { icon: 'medal',           label: 'CU IT Fiesta IUPC Preliminary Online', value: 'Rank 22nd' },
+    { icon: 'star',            label: 'Samsung R&D Bangladesh Code Contest 2024', value: 'Qualified Round 2' },
+    { icon: 'globe',           label: 'ICPC Dhaka Regional Preliminary 2024', value: 'Participated' },
+    { icon: 'file-text',       label: 'Mujib Shotoborsho Divisional Contest CUET', value: 'Onsite' },
+    { icon: 'lightbulb',       label: 'CUET Intra University Junior Contest', value: 'Online' },
   ];
 
   judges = [

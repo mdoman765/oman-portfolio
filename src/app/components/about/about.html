@@ -25,8 +25,8 @@
           CUET Computer Club and Chittagong Student Forum.
         </p>
         <div class="about-links">
-          <a routerLink="/projects" class="btn-primary">My Projects →</a>
-          <a href="mailto:mdoman765@gmail.com" class="btn-ghost">Email Me</a>
+          <a routerLink="/projects" class="btn-primary">My Projects <app-icon name="arrow-right" [size]="14"></app-icon></a>
+          <a href="mailto:mdoman765@gmail.com" class="btn-ghost"><app-icon name="mail" [size]="14"></app-icon> Email Me</a>
         </div>
       </div>
 
@@ -49,7 +49,7 @@
       <div class="interests-grid">
         @for (item of interests; track item.title) {
           <div class="interest-card">
-            <span class="interest-icon">{{ item.icon }}</span>
+            <span class="interest-icon"><app-icon [name]="item.icon" [size]="24"></app-icon></span>
             <h4 class="interest-title">{{ item.title }}</h4>
             <p class="interest-desc">{{ item.desc }}</p>
           </div>

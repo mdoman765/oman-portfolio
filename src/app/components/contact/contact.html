@@ -17,7 +17,7 @@
         <div class="info-list">
           @for (item of infoItems; track item.label) {
             <a [href]="item.link" target="_blank" rel="noopener noreferrer" class="info-item">
-              <span class="info-icon">{{ item.icon }}</span>
+              <span class="info-icon"><app-icon [name]="item.icon" [size]="18"></app-icon></span>
               <span class="info-text">
                 <span class="info-label">{{ item.label }}</span>
                 <span class="info-value">{{ item.value }}</span>
@@ -35,7 +35,7 @@
       <div class="form-panel">
         @if (sent()) {
           <div class="success-msg">
-            <span class="success-icon">✓</span>
+            <span class="success-icon"><app-icon name="check" [size]="34"></app-icon></span>
             <h3>Message Sent!</h3>
             <p>Thank you for reaching out. I'll get back to you within 24–48 hours.</p>
             <button class="btn-reset" (click)="sent.set(false)">Send Another</button>
@@ -67,7 +67,8 @@
               </p>
             }
             <button type="submit" class="btn-submit" [disabled]="sending()">
-              {{ sending() ? 'Sending…' : 'Send Message →' }}
+              <span>{{ sending() ? 'Sending…' : 'Send Message' }}</span>
+              @if (!sending()) { <app-icon name="arrow-right" [size]="14"></app-icon> }
             </button>
           </form>
         }

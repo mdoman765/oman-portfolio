@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { Icon, IconName } from '../../shared/icon/icon';
 
 @Component({
   selector: 'app-about',
-  imports: [RouterLink],
+  imports: [RouterLink, Icon],
   templateUrl: './about.html',
   styleUrl: './about.css',
 })
@@ -32,10 +33,10 @@ export class About {
     }
   ];
 
-  interests = [
-    { icon: '📡', title: 'Wireless Sensing', desc: 'Wi-Fi CSI-based health monitoring, heart rate and breathing rate detection via passive RF signals.' },
-    { icon: '💬', title: 'Natural Language Processing', desc: 'Multimodal transformers, meme detection, multilingual text classification and sentiment analysis.' },
-    { icon: '⚙️', title: 'Industrial Automation', desc: 'PLC communication, IoT integration, real-time factory monitoring systems at enterprise scale.' },
-    { icon: '🤖', title: 'AI Agent Development', desc: 'LLM-powered agents, n8n workflow automation, WhatsApp Business API integration for enterprise workflows.' },
+  interests: { icon: IconName; title: string; desc: string }[] = [
+    { icon: 'radio',           title: 'Wireless Sensing', desc: 'Wi-Fi CSI-based health monitoring, heart rate and breathing rate detection via passive RF signals.' },
+    { icon: 'message-circle',  title: 'Natural Language Processing', desc: 'Multimodal transformers, meme detection, multilingual text classification and sentiment analysis.' },
+    { icon: 'settings',        title: 'Industrial Automation', desc: 'PLC communication, IoT integration, real-time factory monitoring systems at enterprise scale.' },
+    { icon: 'bot',             title: 'AI Agent Development', desc: 'LLM-powered agents, n8n workflow automation, WhatsApp Business API integration for enterprise workflows.' },
   ];
 }

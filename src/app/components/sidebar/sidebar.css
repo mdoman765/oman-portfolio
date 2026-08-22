@@ -56,10 +56,23 @@
   transition: color 0.2s;
 }
 .p-links a:hover { color: var(--gold); }
-.p-icon { font-size: 0.95rem; flex-shrink: 0; }
+.p-links a { min-height: 44px; }
+.p-icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+}
 
 @media (max-width: 900px) {
-  .profile-card { text-align: center; }
+  .profile-card { text-align: center; padding: 1.75rem 1.25rem; }
   .p-meta, .p-links { text-align: center; }
   .p-meta li, .p-links a { justify-content: center; }
+}
+
+@media (max-width: 480px) {
+  .avatar-ring { width: 104px; height: 104px; }
+  .p-name { font-size: 1.2rem; }
+  .profile-card { padding: 1.5rem 1rem; }
 }

@@ -1,10 +1,11 @@
 import { Component, ElementRef, ViewChild, AfterViewInit, OnDestroy, PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { Icon } from '../../shared/icon/icon';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink],
+  imports: [RouterLink, Icon],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })

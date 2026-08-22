@@ -26,10 +26,10 @@
         <div class="pub-title-row">
           <a class="pub-title" [href]="p.paperUrl" target="_blank" rel="noopener noreferrer">{{ p.title }}</a>
           <span class="pub-title-links">
-            @if (p.paperUrl) { <a [href]="p.paperUrl" target="_blank" rel="noopener noreferrer">[View Paper]</a> }
-            @if (p.pdfUrl) { <a [href]="p.pdfUrl" target="_blank" rel="noopener noreferrer">[PDF]</a> }
-            @if (p.doiUrl) { <a [href]="p.doiUrl" target="_blank" rel="noopener noreferrer">[DOI]</a> }
-            @if (p.publisherUrl) { <a [href]="p.publisherUrl" target="_blank" rel="noopener noreferrer">[Publisher]</a> }
+            @if (p.paperUrl) { <a [href]="p.paperUrl" target="_blank" rel="noopener noreferrer"><app-icon name="external-link" [size]="12"></app-icon>View Paper</a> }
+            @if (p.pdfUrl) { <a [href]="p.pdfUrl" target="_blank" rel="noopener noreferrer"><app-icon name="file-text" [size]="12"></app-icon>PDF</a> }
+            @if (p.doiUrl) { <a [href]="p.doiUrl" target="_blank" rel="noopener noreferrer"><app-icon name="external-link" [size]="12"></app-icon>DOI</a> }
+            @if (p.publisherUrl) { <a [href]="p.publisherUrl" target="_blank" rel="noopener noreferrer"><app-icon name="external-link" [size]="12"></app-icon>Publisher</a> }
           </span>
         </div>
 
@@ -99,10 +99,12 @@
                   [class.current]="si === w.stageIndex"
                   [class.upcoming]="si > w.stageIndex">
                 <span class="pt-dot" aria-hidden="true"></span>
-                <span class="pt-label">{{ stage }}</span>
-                @if (si === w.stageIndex) {
-                  <span class="pt-current-tag">{{ w.status }}</span>
-                }
+                <span class="pt-info">
+                  <span class="pt-label">{{ stage }}</span>
+                  @if (si === w.stageIndex) {
+                    <span class="pt-current-tag">{{ w.status }}</span>
+                  }
+                </span>
               </li>
             }
           </ol>

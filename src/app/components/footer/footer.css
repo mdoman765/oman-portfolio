@@ -20,7 +20,15 @@ footer {
   font-family: var(--ff-mono); font-size: 0.68rem;
   text-transform: uppercase; letter-spacing: 0.1em;
   color: var(--muted); transition: color 0.2s;
+  display: inline-flex; align-items: center; min-height: 32px;
 }
 .f-link:hover { color: var(--gold); }
 .footer-right {}
 .f-copy { font-family: var(--ff-mono); font-size: 0.68rem; color: var(--muted); }
+
+@media (max-width: 480px) {
+  footer { padding: 2.25rem 1.25rem 2rem; }
+  .f-name { font-size: 1.4rem; }
+  .f-tagline { font-size: 0.9rem; padding: 0.4rem 1.1rem; }
+  .footer-nav { gap: 1rem 1.25rem; }
+}

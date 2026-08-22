@@ -1,28 +1,29 @@
 import { Component } from '@angular/core';
+import { Icon, IconName } from '../../shared/icon/icon';
 
 @Component({
   selector: 'app-skills',
-  imports: [],
+  imports: [Icon],
   templateUrl: './skills.html',
   styleUrl: './skills.css',
 })
 export class Skills {
-  categories = [
+  categories: { name: string; icon: IconName; skills: { name: string; level: number }[] }[] = [
     {
       name: 'Programming Languages',
-      icon: '💻',
+      icon: 'code',
       skills: [
         { name: 'C / C++',         level: 95 },
         { name: 'C#',    level: 80 },
         { name: 'JavaScript', level: 65 },
         { name: 'Python',     level: 60 },
         { name: 'TypeScript', level: 60 },
-       
+
       ]
     },
     {
       name: 'Frameworks & Web',
-      icon: '🌐',
+      icon: 'globe',
       skills: [
         { name: 'ASP.NET Core / Web API', level: 85 },
          { name: 'MVC Pattern,N-tier Architecture',            level: 85},
@@ -32,7 +33,7 @@ export class Skills {
     },
     {
       name: 'AI & Automation',
-      icon: '🤖',
+      icon: 'bot',
       skills: [
         { name: 'LLM Integration',        level: 95 },
         { name: 'AI Agent Development',   level: 95 },
@@ -43,14 +44,14 @@ export class Skills {
     },
     {
       name: 'Databases & DevOps',
-      icon: '☁️',
+      icon: 'cloud',
       skills: [
         { name: 'MSSQL ',  level: 95 },
           { name: 'Git / GitHub,Ci/CD',   level: 95 },
         { name: 'IIS Deployment', level: 95 },
         { name: 'MongoDB',        level: 70 },
         { name: 'Docker',         level: 65 },
-    
+
       ]
     }
   ];

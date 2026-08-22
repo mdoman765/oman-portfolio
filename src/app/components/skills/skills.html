@@ -11,7 +11,7 @@
       @for (cat of categories; track cat.name) {
         <div class="skill-card">
           <div class="skill-card-header">
-            <span class="cat-icon">{{ cat.icon }}</span>
+            <span class="cat-icon"><app-icon [name]="cat.icon" [size]="20"></app-icon></span>
             <h3 class="cat-name">{{ cat.name }}</h3>
           </div>
           <div class="skill-list">

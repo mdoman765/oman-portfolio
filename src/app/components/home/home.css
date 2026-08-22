@@ -2,7 +2,7 @@
   min-height: 100vh;
   display: flex; align-items: center;
   position: relative; overflow: hidden;
-  padding: 7rem 2rem 4rem;
+  padding: clamp(5.5rem, 14vw, 7rem) clamp(1rem, 4vw, 2rem) clamp(2.5rem, 6vw, 4rem);
 }
 canvas#constellation {
   position: absolute; inset: 0; width: 100%; height: 100%;
@@ -29,6 +29,7 @@ canvas#constellation {
   max-width: var(--max-w); margin: 0 auto; width: 100%;
   display: grid; grid-template-columns: 1fr 340px;
   gap: 5rem; align-items: center; position: relative; z-index: 1;
+  min-width: 0;
 }
 
 /* Tag badge */
@@ -139,14 +140,25 @@ canvas#constellation {
 }
 .scroll-line { width: 1px; height: 48px; background: linear-gradient(to bottom, transparent, var(--border2)); }
 
-/* @media (max-width: 900px) {
-  .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
-  .profile-wrap { order: -1; }
-} */
- @media (max-width: 900px) {
-  .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
-  .profile-wrap { display: none; }
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+  .hero-content { order: 2; }
+  .profile-wrap { order: 1; }
+  .hero-bio { max-width: 100%; margin-left: auto; margin-right: auto; }
+  .hero-tags { justify-content: center; }
+  .hero-ctas { justify-content: center; }
+  .hero-tag { white-space: normal; text-align: left; }
+  .profile-ring-outer { width: 200px; height: 200px; }
+  .profile-badge2 { left: 4px; top: 8px; }
 }
+
 @media (max-width: 600px) {
-  .hero-ctas { flex-direction: column; }
+  .hero-ctas { flex-direction: column; align-items: stretch; }
+  .hero-ctas a { justify-content: center; }
+  .hero-name { text-align: center; }
+}
+
+@media (max-width: 420px) {
+  .profile-ring-outer { width: 168px; height: 168px; }
+  .hero-tag { font-size: 0.66rem; padding: 0.35rem 0.75rem; }
 }

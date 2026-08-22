@@ -90,8 +90,8 @@
 }
 .pub-title:hover { color: #fff; text-decoration-color: var(--gold-lt); }
 
-.pub-title-links { font-family: var(--ff-mono); font-size: 0.76rem; display: inline-flex; gap: 0.6rem; flex-wrap: wrap; white-space: nowrap; }
-.pub-title-links a { color: var(--cyan); transition: color 0.2s; }
+.pub-title-links { font-family: var(--ff-mono); font-size: 0.76rem; display: inline-flex; gap: 0.9rem; flex-wrap: wrap; }
+.pub-title-links a { color: var(--cyan); transition: color 0.2s; display: inline-flex; align-items: center; gap: 0.3rem; white-space: nowrap; }
 .pub-title-links a:hover { color: #fff; text-decoration: underline; }
 
 .pub-authors { font-size: 0.92rem; color: var(--muted2); }
@@ -131,9 +131,16 @@
   .pub-title { font-size: 1.05rem; }
 }
 
+@media (max-width: 480px) {
+  .wip-card { padding: 1.25rem; }
+  .section-h2 { font-size: 1.35rem; margin: 2.25rem 0 0.85rem; }
+  .pub-abstract p { text-align: left; }
+}
+
 .pub-item .tech-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.15rem; }
 
 /* ---------- Work-in-progress publication timeline ---------- */
+/* Desktop / tablet: horizontal timeline with dot above label */
 .pub-timeline {
   display: flex; align-items: flex-start;
   list-style: none; margin-top: 1.25rem; padding-top: 0.25rem;
@@ -144,6 +151,11 @@
   display: flex; flex-direction: column; align-items: center;
   text-align: center;
   padding-top: 0; /* dot sits at top */
+  min-width: 0;
+}
+.pt-info {
+  display: flex; flex-direction: column; align-items: center;
+  min-width: 0;
 }
 /* connecting line, drawn through every step except the first */
 .pt-step:not(:first-child)::before {
@@ -160,6 +172,7 @@
   width: 12px; height: 12px; border-radius: 50%;
   background: var(--surface); border: 2px solid var(--border2);
   margin-bottom: 0.6rem;
+  flex-shrink: 0;
   transition: background 0.25s, border-color 0.25s, box-shadow 0.25s;
 }
 .pt-step.done .pt-dot { background: var(--gold); border-color: var(--gold); }
@@ -176,6 +189,7 @@
 .pt-label {
   font-family: var(--ff-mono); font-size: 0.66rem; letter-spacing: 0.03em;
   color: var(--muted); line-height: 1.4; padding: 0 0.25rem;
+  overflow-wrap: break-word;
 }
 .pt-step.done .pt-label   { color: var(--muted2); }
 .pt-step.current .pt-label { color: var(--gold-lt); font-weight: 600; }
@@ -186,9 +200,48 @@
   text-transform: uppercase; color: var(--gold);
   background: var(--gold-dim); border: 1px solid rgba(200,151,58,0.25);
   border-radius: 999px; padding: 0.12rem 0.55rem;
+  white-space: nowrap;
 }
 
 @media (max-width: 600px) {
   .pt-label { font-size: 0.58rem; }
   .pt-current-tag { font-size: 0.55rem; padding: 0.1rem 0.4rem; }
+}
+
+/* Mobile: convert to a clean vertical timeline — dot + connecting line on
+   the left, label/status stacked to the right of each step. */
+@media (max-width: 560px) {
+  .pub-timeline {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+  .pt-step {
+    flex: none;
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    gap: 0.75rem;
+    padding: 0.55rem 0;
+  }
+  .pt-info {
+    align-items: flex-start;
+    text-align: left;
+    padding-top: 1px;
+  }
+  .pt-dot { margin-bottom: 0; margin-top: 2px; }
+  /* remove the desktop horizontal connector */
+  .pt-step:not(:first-child)::before { content: none; }
+  /* vertical connector between dots */
+  .pt-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 5px; top: 20px;
+    width: 2px; height: calc(100% - 8px);
+    background: var(--border2); z-index: 0;
+  }
+  .pt-step.done:not(:last-child)::after,
+  .pt-step.current:not(:last-child)::after { background: var(--gold); }
+  .pt-label { padding: 0; font-size: 0.7rem; }
+  .pt-current-tag { margin-top: 0.3rem; margin-left: 0; font-size: 0.6rem; padding: 0.12rem 0.5rem; }
 }

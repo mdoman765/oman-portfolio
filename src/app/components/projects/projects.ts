@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
+import { Icon } from '../../shared/icon/icon';
 
 export interface PubAuthor {
   name: string;
@@ -21,7 +22,7 @@ export interface Publication {
 
 @Component({
   selector: 'app-projects',
-  imports: [NgTemplateOutlet],
+  imports: [NgTemplateOutlet, Icon],
   templateUrl: './projects.html',
   styleUrl: './projects.css',
 })

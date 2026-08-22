@@ -15,7 +15,7 @@
       }
     </nav>
 
-    <button class="hamburger" (click)="toggleMenu()" [class.open]="menuOpen()" aria-label="Toggle menu">
+    <button class="hamburger" (click)="toggleMenu()" [class.open]="menuOpen()" aria-label="Toggle menu" [attr.aria-expanded]="menuOpen()">
       <span></span><span></span><span></span>
     </button>
   </div>
