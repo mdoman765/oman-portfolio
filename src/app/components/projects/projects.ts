@@ -1,8 +1,31 @@
 import { Component } from '@angular/core';
+import { NgTemplateOutlet } from '@angular/common';
+
+export interface PubAuthor {
+  name: string;
+  self?: boolean;
+}
+
+export interface Publication {
+  title: string;
+  authors: PubAuthor[];
+  venueShort: string;      // compact venue label, e.g. "LT-EDI @ LDK 2025 · ACL Anthology"
+  year: number;
+  status: 'Published' | 'Accepted' | 'Under Review';
+  pages?: string;
+  publisher?: string;
+  abstract: string;        // full abstract text
+  keywords: string[];
+  stats?: { label: string; sub: string }[];   // compact achievement chips, e.g. { label: '2nd Place', sub: 'LDK 2025 Shared Task' }
+  paperUrl?: string;       // landing / "View Paper" page
+  pdfUrl?: string;         // direct PDF
+  doiUrl?: string;
+  publisherUrl?: string;   // IEEE / publisher page
+}
 
 @Component({
   selector: 'app-projects',
-  imports: [],
+  imports: [NgTemplateOutlet],
   templateUrl: './projects.html',
   styleUrl: './projects.css',
 })
@@ -15,32 +38,37 @@ export class Projects {
   ];
 
   // Publications -> i. Journal
-  journals: {
-    title: string; venue: string; desc: string;
-    tech: string[]; highlights: string[]; github: string; paper: string;
-  }[] = [];
+  journals: Publication[] = [];
 
   // Publications -> ii. Conference
-  conferences = [
+  conferences: Publication[] = [
     {
-      title: 'CUET_Ignite@LT-EDI-2025: Misogynistic Meme Detection',
-      venue: 'LT-EDI, published at ACL Anthology, 2025',
-      desc: 'Co-authored published paper — a multimodal transformer-based approach for detecting misogynistic memes in Chinese social media. Achieved 2nd place in the LDK 2025 Misogyny Meme Detection Shared Task.',
-      tech: ['Transformers', 'Multimodal Learning', 'PyTorch', 'NLP', 'Python'],
-      highlights: ['2nd place — LDK 2025 Shared Task', 'Multimodal transformer'],
-      github: 'https://aclanthology.org/2025.ltedi-1.28/',
-      paper: 'https://aclanthology.org/2025.ltedi-1.28/'
+      title: 'CUET_Ignite@LT-EDI-2025: A Multimodal Transformer-Based Approach for Detecting Misogynistic Memes in Chinese Social Media',
+      authors: [
+        { name: 'MD. Mahadi Rahman' },
+        { name: 'Mohammad Minhaj Uddin' },
+        { name: 'Mohammad Oman', self: true },
+        { name: 'Mohammad Shamsul Arefin' },
+      ],
+      venueShort: 'LT-EDI @ LDK 2025 · ACL Anthology',
+      year: 2025,
+      status: 'Published',
+      pages: '172–177',
+      publisher: 'Unior Press, Naples, Italy',
+      abstract: 'Misogynistic content in memes on social media platforms poses a significant challenge for content moderation, particularly in languages like Chinese, where cultural nuances and multimodal elements complicate detection. Addressing this issue is critical for creating safer online environments. A shared task on multimodal misogyny identification in Chinese memes, organized by LT-EDI@LDK 2025, provided a curated dataset for this purpose. Since memes mix pictures and words, we used two tools: ResNet-50 to understand the images and Chinese RoBERTa to make sense of the text. The dataset consisted of Chinese social media memes annotated with binary labels (Misogynistic and Non-Misogynistic), capturing explicit misogyny, implicit biases, and stereotypes. Our experiments demonstrated that ResNet-50 combined with Chinese RoBERTa achieved a macro F1 score of 0.91, placing second in the competition and underscoring its effectiveness in handling the complex interplay of text and visuals in Chinese memes. This research advances multimodal misogyny detection and contributes to natural language and vision processing for low-resource languages, particularly in combating gender-based abuse online.',
+      keywords: ['Multimodal Learning', 'Transformers', 'NLP', 'Computer Vision', 'PyTorch', 'Python'],
+      stats: [
+        { label: '2nd Place', sub: 'LDK 2025 Shared Task' },
+        
+      ],
+      paperUrl: 'https://aclanthology.org/2025.ltedi-1.28/',
+      pdfUrl: 'https://aclanthology.org/2025.ltedi-1.28.pdf',
     }
   ];
 
   // Work in Progress -> submitted / under review
   workInProgress = [
-    {
-      title: 'Heart & Breathing Rate via Wi-Fi CSI',
-      venue: 'NSySS, BUET 2025',
-      status: 'Submitted',
-      desc: 'Undergraduate thesis measuring heart and breathing rate using Wi-Fi Channel State Information — a passive, contactless sensing approach. Supervised by Mir. Md. Saki Kowsar, Dept. of CSE, CUET.',
-    },
+  
     {
       title: 'Detecting Bangla Deceptive Selling Posts in Social Media',
       venue: 'ICCA (International Conference on Computing, Applications and Systems), AIUB',
