@@ -18,14 +18,59 @@
   min-width: 0;
 }
 
+/* Home has no separate hero anymore — its route content IS the profile
+   card (<app-sidebar>, reused inside home.html), and app.html doesn't
+   render the persistent sidebar again alongside it. So instead of a
+   260px/1fr two-column layout, Home gets a single centered column
+   sized like the card itself. */
+.site-body.is-home {
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+.site-body.is-home .content-area {
+  width: 100%;
+  max-width: 380px;
+}
+
 @media (max-width: 900px) {
   .site-body {
     grid-template-columns: 1fr;
     padding: 1.25rem;
     gap: 1.5rem;
   }
+
+  /* The profile sidebar is not one of the navbar's sections (Research,
+     Education, Experience, Skills, Achievements, Contact). On mobile it
+     used to stack above the routed section and stay visible no matter
+     what the user selected, so the page effectively showed two sections
+     at once. Hide it on mobile so navigating always shows only the
+     section the user picked. Home never renders it in the first place
+     (see app.html), so this only ever affects the other routes. */
   .site-body app-sidebar {
-    position: static;
+    display: none;
+  }
+
+  /* Smoothly fade/slide in whichever section the router just swapped in,
+     instead of the content just snapping into place. */
+  .content-area > * {
+    animation: section-enter 0.28s ease both;
+  }
+}
+
+@keyframes section-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .content-area > * {
+    animation: none;
   }
 }
 

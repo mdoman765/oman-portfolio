@@ -12,9 +12,10 @@ import { EducationExperience } from './components/education-experience/education
 import { AchievementsSkills } from './components/achievements-skills/achievements-skills';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'research', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 
-  // Top navbar sections: Research | Education | Experience | Skills | Achievements | Contact
+  // Top navbar sections: Home | Research | Education | Experience | Skills | Achievements | Contact
+  { path: 'home',          component: Home },
   { path: 'research',     component: Projects },
   { path: 'education',    component: Education },
   { path: 'experience',   component: Experience },
@@ -29,9 +30,8 @@ export const routes: Routes = [
   { path: 'achievements-skills',  component: AchievementsSkills },
 
   // Original routes kept for backwards compatibility / direct access
-  { path: 'home',     component: Home },
   { path: 'about',    component: About },
   { path: 'projects', component: Projects },
 
-  { path: '**', redirectTo: 'research' }
+  { path: '**', redirectTo: 'home' }
 ];

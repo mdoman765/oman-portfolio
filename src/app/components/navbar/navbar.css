@@ -58,12 +58,19 @@ header {
 .mobile-link {
   font-family: var(--ff-mono); font-size: 0.8rem; letter-spacing: 0.1em;
   text-transform: uppercase; color: var(--muted);
-  padding: 0.9rem 0.25rem; border-bottom: 1px solid var(--border);
-  transition: color 0.2s;
+  padding: 0.9rem 0.25rem 0.9rem 0.75rem; border-bottom: 1px solid var(--border);
+  border-left: 2px solid transparent;
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s;
   display: flex; align-items: center; min-height: 44px;
 }
 .mobile-link:last-child { border-bottom: none; }
-.mobile-link:hover, .mobile-link.active { color: var(--gold); }
+.mobile-link:hover { color: var(--gold); }
+.mobile-link.active {
+  color: var(--gold);
+  background: rgba(200, 151, 58, 0.08);
+  border-left-color: var(--gold);
+  font-weight: 700;
+}
 @media (max-width: 900px) {
   .desktop-nav { display: none; }
   .hamburger { display: flex; }

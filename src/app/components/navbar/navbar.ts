@@ -11,6 +11,7 @@ export class Navbar {
   menuOpen = signal(false);
 
   navLinks = [
+    { label: 'Home',         path: '/home' },
     { label: 'Research',     path: '/research' },
     { label: 'Education',    path: '/education' },
     { label: 'Experience',   path: '/experience' },

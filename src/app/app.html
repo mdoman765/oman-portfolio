@@ -1,6 +1,8 @@
 <app-navbar></app-navbar>
-<div class="site-body">
-  <app-sidebar></app-sidebar>
+<div class="site-body" [class.is-home]="isHome()">
+  @if (!isHome()) {
+    <app-sidebar></app-sidebar>
+  }
   <main class="content-area">
     <router-outlet></router-outlet>
   </main>
