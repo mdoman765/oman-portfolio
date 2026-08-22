@@ -65,7 +65,7 @@ export class Projects {
     {
       title: 'Detecting Bangla Deceptive Selling Posts in Social Media',
       venue: 'ICCA (International Conference on Computing, Applications and Systems), AIUB',
-      status: 'Camera-Ready Version',
+      status: 'submitted',
       stageIndex: 2,
       desc: 'Identifying deceptive and fraudulent selling posts written in Bangla on social media platforms.',
     },
