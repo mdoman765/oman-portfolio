@@ -23,7 +23,15 @@
           <span class="pub-pill">{{ p.pillLabel }}</span>
         </div>
 
-        <a class="pub-title" [href]="p.paperUrl" target="_blank" rel="noopener noreferrer">{{ p.title }}</a>
+        <div class="pub-title-row">
+          <a class="pub-title" [href]="p.paperUrl" target="_blank" rel="noopener noreferrer">{{ p.title }}</a>
+          <span class="pub-title-links">
+            @if (p.paperUrl) { <a [href]="p.paperUrl" target="_blank" rel="noopener noreferrer">[View Paper]</a> }
+            @if (p.pdfUrl) { <a [href]="p.pdfUrl" target="_blank" rel="noopener noreferrer">[PDF]</a> }
+            @if (p.doiUrl) { <a [href]="p.doiUrl" target="_blank" rel="noopener noreferrer">[DOI]</a> }
+            @if (p.publisherUrl) { <a [href]="p.publisherUrl" target="_blank" rel="noopener noreferrer">[Publisher]</a> }
+          </span>
+        </div>
 
         <p class="pub-authors">
           @for (a of p.authors; track a.name; let last = $last) {
@@ -32,13 +40,6 @@
         </p>
 
         <p class="pub-cite">{{ p.venueLine }}</p>
-
-        <p class="pub-links">
-          @if (p.paperUrl) { <a [href]="p.paperUrl" target="_blank" rel="noopener noreferrer">[View Paper]</a> }
-          @if (p.pdfUrl) { <a [href]="p.pdfUrl" target="_blank" rel="noopener noreferrer">[PDF]</a> }
-          @if (p.doiUrl) { <a [href]="p.doiUrl" target="_blank" rel="noopener noreferrer">[DOI]</a> }
-          @if (p.publisherUrl) { <a [href]="p.publisherUrl" target="_blank" rel="noopener noreferrer">[Publisher]</a> }
-        </p>
 
         <details class="pub-abstract">
           <summary>Show Abstract</summary>
@@ -55,7 +56,7 @@
       </article>
     </ng-template>
 
-    <h3 class="sub-title">i. Journal</h3>
+    <!-- <h3 class="sub-title">i. Journal</h3>
     @if (journals.length === 0) {
       <p class="empty-note">No journal publications yet.</p>
     } @else {
@@ -64,9 +65,9 @@
           <ng-container [ngTemplateOutlet]="pubCard" [ngTemplateOutletContext]="{ $implicit: p, index: idx }"></ng-container>
         }
       </div>
-    }
+    } -->
 
-    <h3 class="sub-title">ii. Conference</h3>
+    <h3 class="sub-title">i. Conference</h3>
     @if (conferences.length === 0) {
       <p class="empty-note">No conference publications yet.</p>
     } @else {
@@ -90,6 +91,21 @@
           </div>
           <h3 class="wip-title">{{ w.title }}</h3>
           <p class="wip-desc">{{ w.desc }}</p>
+
+          <ol class="pub-timeline">
+            @for (stage of pubStages; track stage; let si = $index) {
+              <li class="pt-step"
+                  [class.done]="si < w.stageIndex"
+                  [class.current]="si === w.stageIndex"
+                  [class.upcoming]="si > w.stageIndex">
+                <span class="pt-dot" aria-hidden="true"></span>
+                <span class="pt-label">{{ stage }}</span>
+                @if (si === w.stageIndex) {
+                  <span class="pt-current-tag">{{ w.status }}</span>
+                }
+              </li>
+            }
+          </ol>
         </div>
       }
     </div>
